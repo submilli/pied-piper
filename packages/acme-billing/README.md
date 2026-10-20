@@ -1,4 +1,4 @@
-# @submilli/acme-billing
+# @submilli/acme-billing (legacy compatibility)
 
 Lists the charges on one customer's account, over fixed data. It stands
 in for a real billing API in the Submilli book's examples, so it needs
@@ -25,3 +25,6 @@ permissions:
 ```
 
 The package's own list is empty: it reads nothing and calls nothing.
+
+New examples use [`@submilli/pied-piper-billing`](../pied-piper-billing/README.md)
+and `pied-piper.example/charges.list`. Existing grants keep their original meaning.

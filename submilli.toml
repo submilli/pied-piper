@@ -1,6 +1,13 @@
 [[package]]
+name = "@submilli/pied-piper-billing"
+version = "0.1.0"
+description = "List one customer's charges in the Pied Piper billing example."
+keywords = ["billing", "charges", "example", "pied-piper"]
+path = "packages/pied-piper-billing"
+
+[[package]]
 name = "@submilli/acme-billing"
 version = "0.1.1"
-description = "List the charges on one customer's account, over fixed data."
+description = "Legacy compatibility package for the Pied Piper billing example."
 keywords = ["billing", "charges", "example"]
 path = "packages/acme-billing"
