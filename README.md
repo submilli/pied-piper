@@ -1,10 +1,10 @@
-# Acme example packages
+# Pied Piper example packages
 
 The example packages the [Submilli](https://github.com/submilli/submilli-runtime)
-book uses. Acme is the fictional company whose support agent the book
-follows. The packages are scoped `@submilli/` because a package's scope
-must be the GitHub owner it is installed from; the `acme-` prefix keeps
-them apart from the curated ones.
+book uses. Pied Piper is the fictional company whose support agent the book
+follows. The packages remain scoped `@submilli/` because a package's scope
+must be the GitHub owner it is installed from; the `acme-` package prefix is
+part of the published compatibility name and remains unchanged.
 
 | Package | What it is |
 | --- | --- |

@@ -13,14 +13,21 @@ export interface Charge {
 }
 
 const LEDGER: Charge[] = [
-    { customerId: "cus_northwind", id: "ch_a1", amount: 4900 },
-    { customerId: "cus_northwind", id: "ch_a2", amount: 1250 },
-    { customerId: "cus_initech", id: "ch_a3", amount: 39900 },
+    { customerId: "pied_piper", id: "ch_a1", amount: 4900 },
+    { customerId: "pied_piper", id: "ch_a2", amount: 1250 },
+    { customerId: "hooli", id: "ch_a3", amount: 39900 },
 ];
+
+// Keep the original fixture IDs working while examples migrate to friendly IDs.
+function canonicalCustomerId(customerId: string): string {
+    if (customerId === "cus_northwind") return "pied_piper";
+    if (customerId === "cus_initech") return "hooli";
+    return customerId;
+}
 
 /**
  * List the charges on one customer's account.
- * @param customerId Billing customer ID, such as `cus_northwind`.
+ * @param customerId Billing customer ID, such as `pied_piper`.
  * @returns The customer's charges; empty when they have none.
  * @capability acme.com/charges.list { customerId: string }
  */
@@ -28,10 +35,13 @@ export function listCharges(customerId: string): Charge[] {
     check("acme.com/charges.list", { customerId });
 
     // In Production, this would call an API endpoint.
+    const canonicalId = canonicalCustomerId(customerId);
     const found: Charge[] = [];
     for (const charge of LEDGER) {
-        if (charge.customerId === customerId) {
-            found.push(charge);
+        if (charge.customerId === canonicalId) {
+            // Return the identity the caller requested so legacy callers keep
+            // receiving the same customer ID they sent.
+            found.push({ customerId, id: charge.id, amount: charge.amount });
         }
     }
     return found;

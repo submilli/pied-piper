@@ -1,6 +1,6 @@
 [[package]]
 name = "@submilli/acme-billing"
-version = "0.1.0"
+version = "0.1.1"
 description = "List the charges on one customer's account, over fixed data."
 keywords = ["billing", "charges", "example"]
 path = "packages/acme-billing"

@@ -14,7 +14,11 @@ not retry with another id.
 import { listCharges } from "@submilli/acme-billing";
 
 function main(): string {
-    const charges = listCharges("cus_northwind");
+    const charges = listCharges("pied_piper");
     return `${charges.length} charges`;
 }
 ```
+
+The previous fixture IDs `cus_northwind` and `cus_initech` remain accepted as
+legacy aliases. Results preserve the ID supplied by the caller during this
+transition.
